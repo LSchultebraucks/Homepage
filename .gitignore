@@ -1,15 +1,4 @@
 **/.idea/workspace.xml
 **/.idea/tasks.xml
-*.iml
 .gradle
 /local.properties
-Würde .editorconfig löschen
-Würde .gitignore löschen
-Würde README.md löschen
-Würde angular-cli.json löschen
-Würde e2e/ löschen
-Würde karma.conf.js löschen
-Würde package.json löschen
-Würde protractor.conf.js löschen
-Würde src/ löschen
-Würde tslint.json löschen

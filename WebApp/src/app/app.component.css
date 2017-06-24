@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding: 50px;
   max-width: 1050px;
+  min-height: 900px;
 }
 
 @media (max-width: 1201px) {

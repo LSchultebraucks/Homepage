@@ -6,12 +6,14 @@ import { HomeComponent } from './home/home.component'
 import {BlogComponent} from "./blog/blog.component";
 import {PortfolioComponent} from "./portfolio/portfolio.component";
 import {ContactComponent} from "./contact/contact.component";
+import {PrivacyPolicyComponent} from "./footer/privacy-policy/privacy-policy.component";
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'portfolio', component: PortfolioComponent},
   { path: 'contact', component: ContactComponent },
+  { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: '**', redirectTo: '/home', pathMatch: 'full' }
 ];
 

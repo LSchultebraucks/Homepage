@@ -1,3 +1,4 @@
 .container {
-  margin: 3%;
+  max-width: 1024px;
+  margin: 2% auto 2% auto;
 }

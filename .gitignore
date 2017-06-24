@@ -2,3 +2,7 @@
 **/.idea/tasks.xml
 .gradle
 /local.properties
+/.idea/typescript-compiler.xml
+/.idea/jsLibraryMappings.xml
+Würde .idea/jsLibraryMappings.xml löschen
+Würde .idea/typescript-compiler.xml löschen

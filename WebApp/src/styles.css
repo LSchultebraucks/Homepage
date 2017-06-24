@@ -2,7 +2,20 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~font-awesome/css/font-awesome.css";
 
-.h1 {
+h1 {
   color: #369;
   font-size: 400%
+}
+
+h2 {
+  color: #369;
+  font-size: 225%;
+}
+
+p {
+  font-size: 120%;
+}
+
+a {
+  color: black;
 }

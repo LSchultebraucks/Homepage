@@ -15,6 +15,8 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './footer/footer.component';
 import { PrivacyPolicyComponent } from './footer/privacy-policy/privacy-policy.component';
+import { BlogpostListComponent } from './blog/blogpost-list/blogpost-list.component';
+import { BlogpostPreviewComponent } from './blog/blogpost-list/blogpost-preview/blogpost-preview.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { PrivacyPolicyComponent } from './footer/privacy-policy/privacy-policy.c
     PortfolioComponent,
     ContactComponent,
     FooterComponent,
-    PrivacyPolicyComponent
+    PrivacyPolicyComponent,
+    BlogpostListComponent,
+    BlogpostPreviewComponent
   ],
   imports: [
     BrowserModule,

@@ -16,6 +16,29 @@ p {
   font-size: 120%;
 }
 
-a {
-  color: black;
+.btn-custom {
+  background-color: #369;
+  color: white;
+  cursor: pointer;
+}
+
+.datetime {
+  float: right;
+  margin: 1em 0;
+  height: 30px;
+  width: 130px;
+  text-align: center;
+  background: #369;
+  color: white;
+  padding-top: .2em;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.btn-custom:hover {
+  background-color: #003c6b;
 }

@@ -12,4 +12,8 @@ export class FooterComponent implements OnInit {
   ngOnInit() {
   }
 
+  private onClickPrivacyPolicy(): void {
+    window.scrollTo(0, 0);
+  }
+
 }

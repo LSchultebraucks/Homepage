@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-blogpost-preview',
@@ -8,9 +9,14 @@ import {Component, Input, OnInit} from '@angular/core';
 export class BlogpostPreviewComponent implements OnInit {
   @Input() blogpost;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  onClickReadMore() {
+    this.router.navigate(["/blog","32"]);
+    window.scrollTo(0, 0);
   }
 
 }

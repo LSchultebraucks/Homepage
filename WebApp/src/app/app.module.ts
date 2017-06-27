@@ -17,6 +17,7 @@ import { FooterComponent } from './footer/footer.component';
 import { PrivacyPolicyComponent } from './footer/privacy-policy/privacy-policy.component';
 import { BlogpostListComponent } from './blog/blogpost-list/blogpost-list.component';
 import { BlogpostPreviewComponent } from './blog/blogpost-list/blogpost-preview/blogpost-preview.component';
+import { BlogPostComponent } from './blog/blogpost-list/blog-post/blogpost.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { BlogpostPreviewComponent } from './blog/blogpost-list/blogpost-preview/
     FooterComponent,
     PrivacyPolicyComponent,
     BlogpostListComponent,
-    BlogpostPreviewComponent
+    BlogpostPreviewComponent,
+    BlogPostComponent
   ],
   imports: [
     BrowserModule,

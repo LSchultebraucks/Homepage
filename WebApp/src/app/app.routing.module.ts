@@ -7,10 +7,12 @@ import {BlogComponent} from "./blog/blog.component";
 import {PortfolioComponent} from "./portfolio/portfolio.component";
 import {ContactComponent} from "./contact/contact.component";
 import {PrivacyPolicyComponent} from "./footer/privacy-policy/privacy-policy.component";
+import {BlogPostComponent} from "./blog/blogpost-list/blog-post/blogpost.component";
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'blog', component: BlogComponent },
+  { path: 'blog/:id', component: BlogPostComponent },
   { path: 'portfolio', component: PortfolioComponent},
   { path: 'contact', component: ContactComponent },
   { path: 'privacy-policy', component: PrivacyPolicyComponent },

@@ -8,7 +8,7 @@
       <p>{{blogpost.previewText}}</p>
     </div>
     <div>
-      <img src={{blogpost.image}}/>
+      <img class="cursor-pointer" src={{blogpost.image}} (click)="onClickReadMore()"/>
     </div>
   </div>
   <button class="btn btn-custom" (click)="onClickReadMore()">Read more</button>

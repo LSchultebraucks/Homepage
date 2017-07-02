@@ -15,7 +15,7 @@ export class BlogpostPreviewComponent implements OnInit {
   }
 
   onClickReadMore() {
-    this.router.navigate(["/blog","32"]);
+    this.router.navigate(["/blog", this.blogpost.url]);
     window.scrollTo(0, 0);
   }
 

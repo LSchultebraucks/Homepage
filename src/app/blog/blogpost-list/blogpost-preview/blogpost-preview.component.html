@@ -1,0 +1,15 @@
+<div class="preview-container">
+  <div class="row">
+    <h2 class="col-md-10 align-self-center">{{blogpost.title}}</h2>
+    <span class="datetime">{{blogpost.date}}</span>
+  </div>
+  <div class="row">
+    <div class="col-md-7">
+      <p>{{blogpost.previewText}}</p>
+    </div>
+    <div>
+      <img class="cursor-pointer" src={{blogpost.image}} (click)="onClickReadMore()"/>
+    </div>
+  </div>
+  <button class="btn btn-custom" (click)="onClickReadMore()">Read more</button>
+</div>

@@ -1,0 +1,9 @@
+.padding {
+  padding: 0 0 25px 20px;
+}
+
+.picture-size {
+  max-width: 100%;
+  height: auto;
+  width: auto;
+}

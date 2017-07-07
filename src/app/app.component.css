@@ -1,0 +1,14 @@
+.container {
+  align-content: center;
+  margin: 0 auto;
+  padding: 50px;
+  max-width: 1050px;
+  min-height: 900px;
+}
+
+@media (max-width: 1201px) {
+  .container {
+    margin: 10px;
+    width: 100%;
+  }
+}

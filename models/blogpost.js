@@ -5,13 +5,10 @@ var schema = new Schema({
   title: { type: String, required: true },
   url: { type: String, required: true },
   date:  { type: Date, default: Date.now },
-  image: { type: Schema.Types.ObjectId, ref: "fs.files", required: true },
+  image: { type: Schema.Types.ObjectId, ref: "fs.files", required: true }, // GRIDFS
   tags:  [{type: String, required: true}],
-  paragraphs: [
-    title = { type: String },
-    body = { type: String },
-    image = { type: Schema.Types.ObjectId, ref: "fs.files" }
-  ]
+  intro: { type: String, required: true }
+  // SOME HTML TEMPLATE WITH PICS ALL SAVED IN GRIDFS
 });
 
 schema.plugin(mongooseUniqueValidator);

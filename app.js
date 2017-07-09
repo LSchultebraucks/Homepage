@@ -1,43 +1,14 @@
-// Get dependencies
-const express = require('express');
-const path = require('path');
-const http = require('http');
-const bodyParser = require('body-parser');
+'use strict';
 
-// Get our API routes
-const apiRoutes = require('./server/routes/api');
-const imageRoutes = require('./server/routes/image');
+const app = require('express')(),
+  config = require('./config/config');
 
-const app = express();
+//Express conf !
+require('./config/express.config')(app);
 
-// Parsers for POST data
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+//Mongoose Conf !
+require('./config/mongoose.config')(config);
 
-// Point static path to dist
-app.use(express.static(path.join(__dirname, 'dist')));
-
-// Set our api routes
-app.use('/api', apiRoutes);
-app.use('/image', imageRoutes);
-
-// Catch all other routes and return the index file
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/index.html'));
+app.listen(config.dev.port, () => {
+  console.log("Listening ..");
 });
-
-/**
- * Get port from environment and store in Express.
- */
-const port = process.env.PORT || '3000';
-app.set('port', port);
-
-/**
- * Create HTTP server.
- */
-const server = http.createServer(app);
-
-/**
- * Listen on provided port, on all network interfaces.
- */
-server.listen(port, () => console.log(`API running on localhost:${port}`));

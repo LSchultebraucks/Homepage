@@ -1,20 +1,26 @@
-const express = require('express');
-const router = express.Router();
-const mongoose = require('mongoose');
-const fs = require('fs');
+'use strict';
 
-let Grid = require('gridfs-stream');
+const router = require('express').Router();
+const config = require('../../config/config');
+const mongoose = require("mongoose");
+const fs = require("fs");
+
+let Grid = require("gridfs-stream");
+let conn = mongoose.connection;
 Grid.mongo = mongoose.mongo;
 let gfs;
 
 
-router.get('/', (req, res) => {
-  res.send('image works');
-});
+conn.once("open", ()=>{
+  gfs = Grid(conn.db);
+  router.get('/', (req, res) => {
+    res.send('image works');
+  });
 
-router.post('/img', (req, res) => {
-  let file = req.files.file;
-  let writeStream = gfs
+  router.post('/img', (req, res) => {
+    let file = req.files.file;
+    let writeStream = gfs
+  });
 });
 
 

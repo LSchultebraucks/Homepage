@@ -10,11 +10,10 @@ let conn = mongoose.connection;
 Grid.mongo = mongoose.mongo;
 let gfs;
 
-conn.once("open", ()=>{
+conn.once("open", () => {
   gfs = Grid(conn.db);
-
   router.get('/', (req, res) => {
-    res.send('image works');
+    res.send('image working');
   });
 
   router.get('/img/:imgname', (req, res) => {
@@ -68,7 +67,6 @@ conn.once("open", ()=>{
 
     writeStream.end();
   });
-
 });
 
 

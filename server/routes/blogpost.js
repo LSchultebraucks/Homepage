@@ -131,7 +131,6 @@ router.put(':/url', function (req, res, next) {
 });
 
 router.delete('/:url', function (req, res, next) {
-  console.log(req);
   blogPost.findOne({url: req.params.url}, function (err, post) {
     if (err) {
       return res.status(500).json({

@@ -9,6 +9,10 @@ require('./config/express.config')(app);
 //Mongoose Conf !
 require('./config/mongoose.config')(config);
 
-app.listen(config.dev.port, () => {
-  console.log("Listening ..");
-});
+if(!module.parent) {
+  app.listen(config.dev.port, () => {
+    console.log("Listening ..");
+  })
+}
+
+module.exports = app;

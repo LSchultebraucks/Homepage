@@ -4,9 +4,9 @@ import 'rxjs/Rx';
 import { Observable } from "rxjs";
 import 'rxjs/add/operator/catch';
 
-import {ErrorService} from "../errors/error.service";
+import { ErrorService } from "../errors/error.service";
 
-import {BlogPost} from "./blogpost-list/blogPost.model";
+import { BlogPost } from "./blogpost-list/blogPost.model";
 
 @Injectable()
 export class BlogService {

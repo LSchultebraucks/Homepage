@@ -56,7 +56,7 @@ router.post('/', function (req, res, next) {
       });
     }
     res.status(200).json({
-      message: 'Saved blogpost',
+      message: 'Saved blogPost',
       obj: result
     });
   });
@@ -89,7 +89,7 @@ router.put(':/url', function (req, res, next) {
           });
         }
         return res.status(200).json({
-          message: 'Saved blogpost',
+          message: 'Saved blogPost',
           obj: result
         });
       });
@@ -122,7 +122,7 @@ router.put(':/url', function (req, res, next) {
           });
         }
         res.status(200).json({
-          message: 'Saved blogpost',
+          message: 'Saved blogPost',
           obj: result
         });
       });

@@ -24,14 +24,14 @@ describe('/GET posts', () => {
   });
 });
 
-describe('POST GET DELETE blogpost', () => {
+describe('POST GET DELETE blogPost', () => {
 
   let testBlogPost = new blogPost({
     title: "A title",
     url: "url-test",
     date: 99999999,
     tags: ["Awesome", "Test"],
-    intro: "Some intro text about the blogpost"
+    intro: "Some intro text about the blogPost"
   });
 
   it('it should post a post', (done) => {
@@ -40,13 +40,13 @@ describe('POST GET DELETE blogpost', () => {
       .send(testBlogPost)
       .end((err, res) => {
         assert(200, res.statusCode);
-        assert("Saved blogpost", res.message);
+        assert("Saved blogPost", res.message);
         assert(testBlogPost, res.obj);
       });
     done();
   });
 
-  it('it should get the blogpost', (done) => {
+  it('it should get the blogPost', (done) => {
     chai.request(server)
       .get('/blogpost/' + blogPost.url)
       .end((err, res) => {
@@ -57,12 +57,12 @@ describe('POST GET DELETE blogpost', () => {
     done();
   });
 
-  it('it should delete the blogpost', (done) => {
+  it('it should delete the blogPost', (done) => {
     chai.request(server)
       .delete('/blogpost/' + blogPost.url)
       .end((err, res) => {
         assert(200, res.statusCode);
-        assert("Deleted blogpost", res.message);
+        assert("Deleted blogPost", res.message);
         assert(testBlogPost, res.obj);
       });
     done();

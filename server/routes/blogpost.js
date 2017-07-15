@@ -142,6 +142,7 @@ router.delete('/:url', function (req, res, next) {
       return res.status(500).json({
         title: 'No Post Found!',
         error: {message: 'Post not found'}
+
       });
     }
     post.remove(function (err, result) {

@@ -19,13 +19,11 @@ module.exports = (app) => {
   app.use(busboyBodyParser({ limit: '10mb' }));
 
   // Get API routes
-  const apiRoutes = require('../server/routes/api');
   const imageRoutes = require('../server/routes/image');
   const blogPostRoutes = require('../server/routes/blogpost');
   const fileTestRoutes = require('../server/routes/file_test');
 
   // Set api routes
-  app.use('/api', apiRoutes);
   app.use('/image', imageRoutes);
   app.use('/blogpost', blogPostRoutes);
   app.use('/file', fileTestRoutes);

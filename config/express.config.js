@@ -22,11 +22,13 @@ module.exports = (app) => {
   const imageRoutes = require('../server/routes/image');
   const blogPostRoutes = require('../server/routes/blogpost');
   const fileTestRoutes = require('../server/routes/file_test');
+  const authRoutes = require('../server/routes/auth');
 
   // Set api routes
   app.use('/image', imageRoutes);
   app.use('/blogpost', blogPostRoutes);
   app.use('/file', fileTestRoutes);
+  app.use('/auth', authRoutes);
 
   // Redirection to default Angular App
   app.use(express.static(path.join(__dirname, '../dist')));

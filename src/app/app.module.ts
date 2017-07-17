@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -19,6 +19,9 @@ import { PrivacyPolicyComponent } from './footer/privacy-policy/privacy-policy.c
 // Services
 import { ErrorService } from "./errors/error.service"
 import { BlogPostService } from "./blog/blog.service";
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent } from './dashboard/login/login.component';
+import { AuthService } from "./dashboard/auth.service";
 
 @NgModule({
   declarations: [
@@ -28,17 +31,20 @@ import { BlogPostService } from "./blog/blog.service";
     PortfolioComponent,
     ContactComponent,
     FooterComponent,
-    PrivacyPolicyComponent
+    PrivacyPolicyComponent,
+    DashboardComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BlogModule,
     NgbModule.forRoot()
   ],
-  providers: [ErrorService, BlogPostService],
+  providers: [ErrorService, BlogPostService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

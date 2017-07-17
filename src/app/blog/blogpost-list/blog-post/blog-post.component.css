@@ -1,0 +1,20 @@
+img {
+  max-width: 400px;
+  padding: 0 0 0 15px;
+}
+
+@media (max-width: 767px) {
+  img {
+    max-width: 315px;
+  }
+}
+
+@media (max-width: 480px) {
+  img {
+    max-width: 315px;
+  }
+}
+
+.tag {
+  color: #336699;
+}

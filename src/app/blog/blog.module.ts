@@ -8,7 +8,7 @@ import { BlogPostPreviewComponent } from "./blogpost-list/blogpost-preview/blogp
 import { BlogpostListComponent } from "./blogpost-list/blogpost-list.component";
 
 // Services
-import {BlogService} from "./blog.service"
+import {BlogPostService} from "./blog.service"
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import {BlogService} from "./blog.service"
   imports: [
     CommonModule,
   ],
-  providers: [BlogService]
+  providers: [BlogPostService]
 })
 export class BlogModule {
 

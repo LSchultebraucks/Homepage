@@ -9,13 +9,32 @@ import { ErrorService } from "../errors/error.service";
 import { BlogPost } from "./blogpost-list/blogPost.model";
 
 @Injectable()
-export class BlogService {
+export class BlogPostService {
   private blogPosts: BlogPost[] = [];
 
   constructor(private http: Http, private errorService: ErrorService) {}
 
   addBlogPost(blogPost) {
 
+  }
+
+  getBlogPost(url: any) {
+    return this.http.get('http://localhost:3000/blogpost/' + url)
+      .map((response: Response) => {
+        const result = response.json();
+        let blogPost = new BlogPost(
+          result.obj.title,
+          result.obj.url,
+          result.obj.date,
+          result.obj.intro,
+          result.obj.tags
+        );
+        return blogPost;
+      })
+      .catch((error) => {
+        this.errorService.handleError(error.json());
+        return Observable.throw(error.json());
+      });
   }
 
   getBlogPosts() {

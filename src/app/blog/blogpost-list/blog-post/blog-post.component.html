@@ -1,3 +1,20 @@
-<p>
-  blogpost works!
-</p>
+<div>
+  <h2>{{blogPost.title}}</h2>
+  <div class="row">
+    <div class="col-sm-3">
+      <p>{{blogPost.date}}</p>
+    </div>
+    <div *ngFor="let tag of blogPost.tags">
+      <p class="tag">{{tag}}&nbsp;&nbsp;</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-7">
+      <p>{{blogPost.intro}}</p>
+    </div>
+    <div>
+      <img class="cursor-pointer" src={{blogPost.image}} (click)="onClickReadMore()"/>
+    </div>
+  </div>
+  <div id="inner-container"></div>
+</div>

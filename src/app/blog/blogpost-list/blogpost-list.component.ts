@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { BlogService } from "../blog.service";
+import { BlogPostService } from "../blog.service";
 import { BlogPost } from "./blogPost.model";
 
 @Component({
@@ -11,7 +11,7 @@ import { BlogPost } from "./blogPost.model";
 export class BlogpostListComponent implements OnInit {
   blogPosts: BlogPost[];
 
-  constructor(private blogService: BlogService) { }
+  constructor(private blogService: BlogPostService) { }
 
   ngOnInit() {
     this.blogService.getBlogPosts()

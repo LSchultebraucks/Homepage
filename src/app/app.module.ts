@@ -18,7 +18,7 @@ import { PrivacyPolicyComponent } from './footer/privacy-policy/privacy-policy.c
 
 // Services
 import { ErrorService } from "./errors/error.service"
-import { BlogService } from "./blog/blog.service";
+import { BlogPostService } from "./blog/blog.service";
 
 @NgModule({
   declarations: [
@@ -38,7 +38,7 @@ import { BlogService } from "./blog/blog.service";
     BlogModule,
     NgbModule.forRoot()
   ],
-  providers: [ErrorService, BlogService],
+  providers: [ErrorService, BlogPostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

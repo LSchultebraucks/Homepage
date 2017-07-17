@@ -5,32 +5,32 @@ const router = express.Router();
 
 let blogPost = require('../../models/blogpost');
 
-router.get('/', function (req, res, next) {
+router.get('/', function (request, response, next) {
   blogPost.find()
     .populate()
     .exec((err, posts) => {
       if (err) {
-        return res.status(500).json({
+        return response.status(500).json({
           title: 'Error while trying to fetch posts',
           error: err
         });
       }
-      res.status(200).json({
+      response.status(200).json({
         message: 'Sucess',
         obj: posts
       })
     });
 });
 
-router.get('/:url', function (req, res, next) {
-  blogPost.findOne({url: req.params.url}, function (err, post) {
+router.get('/:url', function (request, response, next) {
+  blogPost.findOne({url: request.params.url}, function (err, post) {
     if (err) {
-      return res.status(500).json({
+      return response.status(500).json({
         title: 'An error occurred',
         error: err
       });
     } else {
-      res.status(200).json({
+      response.status(200).json({
         message: 'Success',
         obj: post
       })
@@ -38,24 +38,24 @@ router.get('/:url', function (req, res, next) {
   });
 });
 
-router.post('/', function (req, res, next) {
+router.post('/', function (request, response, next) {
   let post = new blogPost({
-    title: req.body.title,
-    url: req.body.url,
-    date: req.body.date,
-    image: req.body.image,
-    tags: req.body.tags,
-    intro: req.body.intro,
-    template: req.body.template
+    title: request.body.title,
+    url: request.body.url,
+    date: request.body.date,
+    image: request.body.image,
+    tags: request.body.tags,
+    intro: request.body.intro,
+    template: request.body.template
   });
   post.save(function (err, result) {
     if (err) {
-      return res.status(500).json({
+      return response.status(500).json({
         title: 'Error while trying to store blog post',
         error: err
       });
     }
-    res.status(200).json({
+    response.status(200).json({
       message: 'Saved blogPost',
       obj: result
     });
@@ -63,32 +63,32 @@ router.post('/', function (req, res, next) {
 });
 
 // TODO: Does no work yet
-router.put(':/url', function (req, res, next) {
-  blogPost.findOne({url: req.params.url}, function (err, post) {
+router.put(':/url', function (request, response, next) {
+  blogPost.findOne({url: request.params.url}, function (err, post) {
     if (err) {
-      return res.status(500).json({
+      return response.status(500).json({
         title: 'An error occurred',
         error: err
       });
     }
     if (!post) {
       post = new blogPost({
-        title: req.body.title,
-        url: req.body.url,
-        date: req.body.date,
-        image: req.body.image,
-        tags: req.body.tags,
-        intro: req.body.intro,
-        template: req.body.template
+        title: request.body.title,
+        url: request.body.url,
+        date: request.body.date,
+        image: request.body.image,
+        tags: request.body.tags,
+        intro: request.body.intro,
+        template: request.body.template
       });
       post.save(function (err, result) {
         if (err) {
-          return res.status(500).json({
+          return response.status(500).json({
             title: 'Error while trying to store blog post',
             error: err
           });
         }
-        return res.status(200).json({
+        return response.status(200).json({
           message: 'Saved blogPost',
           obj: result
         });
@@ -96,32 +96,32 @@ router.put(':/url', function (req, res, next) {
     }
     blogPost.findById(post._id, function (err, post) {
       if (err) {
-        return res.status(500).json({
+        return response.status(500).json({
           title: 'An error occurred',
           error: err
         });
       }
       if (!post) {
-        return res.status(500).json({
+        return response.status(500).json({
           title: 'No Post Found!',
           error: {message: 'Post not found'}
         });
       }
-      post.title =  req.body.title;
-      post.url = req.body.url;
-      post.date = req.body.date;
-      post.image = req.body.image;
-      post.tags = req.body.tags;
-      post.intro = req.body.intro;
-      post.template = req.body.template;
+      post.title =  request.body.title;
+      post.url = request.body.url;
+      post.date = request.body.date;
+      post.image = request.body.image;
+      post.tags = request.body.tags;
+      post.intro = request.body.intro;
+      post.template = request.body.template;
       post.save(function (err, result) {
         if (err) {
-          return res.status(500).json({
+          return response.status(500).json({
             title: 'Error while trying to store blog post',
             error: err
           });
         }
-        res.status(200).json({
+        response.status(200).json({
           message: 'Saved blogPost',
           obj: result
         });
@@ -130,16 +130,16 @@ router.put(':/url', function (req, res, next) {
   });
 });
 
-router.delete('/:url', function (req, res, next) {
-  blogPost.findOne({url: req.params.url}, function (err, post) {
+router.delete('/:url', function (request, response, next) {
+  blogPost.findOne({url: request.params.url}, function (err, post) {
     if (err) {
-      return res.status(500).json({
+      return response.status(500).json({
         title: 'An error occurred',
         error: err
       });
     }
     if (!post) {
-      return res.status(500).json({
+      return response.status(500).json({
         title: 'No Post Found!',
         error: {message: 'Post not found'}
 
@@ -147,12 +147,12 @@ router.delete('/:url', function (req, res, next) {
     }
     post.remove(function (err, result) {
       if (err) {
-        return res.status(500).json({
+        return response.status(500).json({
           title: 'An error occurred',
           error: err
         });
       }
-      res.status(200).json({
+      response.status(200).json({
         message: 'Deleted Post',
         obj: result
       });

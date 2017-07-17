@@ -1,0 +1,7 @@
+<form [formGroup]="loginGroup" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label>Please Enter you password:</label>
+    <input type="password" class="form-control" formControlName="password">
+    <button class="btn btn-submit" type="submit" [disabled]="!loginGroup.valid">Login</button>
+  </div>
+</form>

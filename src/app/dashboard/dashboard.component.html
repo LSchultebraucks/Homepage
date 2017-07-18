@@ -1,34 +1,40 @@
 <div>
-  <h1>Lets create a new blog post</h1>
-  <form [formGroup]="blogForm" (ngSubmit)="onSubmit()">
+  <h1>Let's create a new blog post</h1>
+  <form [formGroup]="blogGroup" (ngSubmit)="onSubmit()">
     <div>
-      <div>
-        <label>Title</label>
-        <input class="form-control" formControlName="title">
-      </div>
-      <div>
-        <label>Url</label>
-        <input class="form-control" formControlName="url">
-      </div>
-      <div>
-        <label>Date</label>
-        <input class="form-control" formControlName="date">
-      </div>
-      <div>
-        <label>Tags</label>
-        <input class="form-control" formControlName="tags">
-      </div>
-      <div>
-        <label>Intro</label>
-        <input class="form-control" formControlName="intro">
-      </div>
-      <div>
-        <label>Template (Content)</label>
-        <input class="form-control" formControlName="template">
-      </div>
+      <label for="title">Title</label>
+      <input [(ngModel)]="title" class="form-control" formControlName="title" id="title" required>
     </div>
+    <div>
+      <label for="url">Url</label>
+      <input class="form-control" formControlName="url" id="url" required>
+    </div>
+    <div>
+      <label for="date">Date</label>
+      <input class="form-control" formControlName="date" id="date" required>
+    </div>
+    <div>
+      <label for="tags">Tags</label>
+      <input class="form-control" formControlName="tags" id="tags" required>
+    </div>
+    <div>
+      <label for="intro">Intro</label>
+      <input class="form-control" formControlName="intro" id="intro" required>
+    </div>
+    <div>
+      <label for="template">Template (Content)</label>
+      <textarea class="form-control" [(ngModel)]="template" rows="25" formControlName="template" id="template" required></textarea>
+    </div>
+
     <div>
       <!-- Preview -->
+      <h3>{{title}}</h3>
+      <div [innerHtml]="template" id="templatePreview"></div>
+    </div>
+
+    <div>
+      <button class="btn btn-success" type="submit">Post Blog Post</button>
     </div>
   </form>
+
 </div>

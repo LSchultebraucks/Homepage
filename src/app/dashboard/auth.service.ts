@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from "@angular/http";
+import { Http, Headers, Response, URLSearchParams } from "@angular/http";
 import 'rxjs/Rx';
 import { Observable } from "rxjs";
 
@@ -12,10 +12,11 @@ export class AuthService {
   }
 
   signIn(password: string) {
-    const body = JSON.stringify(password);
-    const headers = new Headers({'Content-Type': 'application/json'});
+    const body = new URLSearchParams();
+    body.set('password', password);
+    const headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
     return this.http.post('http://localhost:3000/auth', body, {headers: headers})
-      .map((response: Response) => response.json())
+      .map( res => res.json())
       .catch((error: Response) => {
         this.errorService.handleError(error.json());
         return Observable.throw(error.json());
@@ -27,7 +28,7 @@ export class AuthService {
   }
 
   isLoggedIn() {
-    return localStorage.getItem('token') != null;
+    return localStorage.getItem('lsblogtoken') != null;
   }
 
 }

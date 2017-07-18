@@ -14,6 +14,9 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
+    if (this.authService.isLoggedIn()) {
+      this.router.navigateByUrl('/dashboard');
+    }
     this.loginGroup = new FormGroup({
       password: new FormControl(null, Validators.required)
     });
@@ -21,12 +24,11 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     const password: string = this.loginGroup.value.password;
-    // Check if equals hash, then redirect to dashboard
     this.authService.signIn(password)
       .subscribe(
         data => {
-          localStorage.setItem('token', data.token);
-          this.router.navigateByUrl('dashboard');
+          localStorage.setItem('lsblogtoken', data.lsblogtoken);
+          this.router.navigateByUrl('/dashboard');
         }
       );
     this.loginGroup.reset();

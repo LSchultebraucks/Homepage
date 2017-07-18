@@ -1,3 +1,34 @@
-<p>
-  dashboard works!
-</p>
+<div>
+  <h1>Lets create a new blog post</h1>
+  <form [formGroup]="blogForm" (ngSubmit)="onSubmit()">
+    <div>
+      <div>
+        <label>Title</label>
+        <input class="form-control" formControlName="title">
+      </div>
+      <div>
+        <label>Url</label>
+        <input class="form-control" formControlName="url">
+      </div>
+      <div>
+        <label>Date</label>
+        <input class="form-control" formControlName="date">
+      </div>
+      <div>
+        <label>Tags</label>
+        <input class="form-control" formControlName="tags">
+      </div>
+      <div>
+        <label>Intro</label>
+        <input class="form-control" formControlName="intro">
+      </div>
+      <div>
+        <label>Template (Content)</label>
+        <input class="form-control" formControlName="template">
+      </div>
+    </div>
+    <div>
+      <!-- Preview -->
+    </div>
+  </form>
+</div>

@@ -1,26 +1,27 @@
 export class BlogPost {
   title: string;
   url: string;
-  date: string;
+  date: number;
   intro: string;
   tags: string[];
-  image?: any;
-  template?: any;
+  image?: string;
+  template?: string;
 
   private MONTH = ["January", "February", "March", "April", "May", "June",
                           "July", "August", "September", "October", "November", "December"];
 
-  constructor(title: string, url: string, date: number, intro: string, tags: string[], image?: any, template?: any) {
+  constructor(title: string, url: string, date: number, intro: string, tags: string[], image?: string, template?: string) {
     this.title = title;
     this.url = url;
-    this.date = this.parseDate(new Date(date));
+    this.date = date;
     this.intro = intro;
     this.tags = tags;
     this.image = image;
     this.template = template;
   }
 
-  private parseDate(date: Date): string {
+  parseDate(ms: Date): string {
+    let date = new Date(ms);
     return date.getUTCDate() + ". " + this.MONTH[date.getMonth()] + " " + date.getFullYear();
   }
 }

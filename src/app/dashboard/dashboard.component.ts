@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 
 import { AuthService } from "./auth.service";
 import {FormControl, FormGroup } from "@angular/forms";
+import {BlogPost} from "../blog/blogpost-list/blogPost.model";
 
 @Component({
   selector: 'app-dashboard',
@@ -13,8 +14,8 @@ import {FormControl, FormGroup } from "@angular/forms";
 export class DashboardComponent implements OnInit {
 
   blogGroup: FormGroup;
-  title: string = '';
-  template: string = '';
+  blogPost: BlogPost = new BlogPost('', '', Date.now(), '', []);
+  tags: string = '';
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -25,10 +26,15 @@ export class DashboardComponent implements OnInit {
       date: new FormControl(),
       tags: new FormControl(),
       intro: new FormControl(),
+      image: new FormControl(),
       template: new FormControl()
     });
     if (!this.authService.isLoggedIn()) {
       this.router.navigateByUrl('/login');
     }
+  }
+
+  onClickPost() {
+
   }
 }

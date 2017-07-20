@@ -1,7 +1,12 @@
 <div class="preview-container">
+  <h2>{{blogPost.title}}</h2>
   <div class="row">
-    <h2 class="col-md-10 align-self-center">{{blogPost.title}}</h2>
-    <span class="datetime">{{blogPost.date}}</span>
+    <div class="col-sm-3">
+      <em>{{blogPost.parseDate(blogPost.date)}}</em>
+    </div>
+    <div *ngFor="let tag of blogPost.tags">
+      <em class="tag">{{tag}}&nbsp;&nbsp;</em>
+    </div>
   </div>
   <div class="row">
     <div class="col-md-7">

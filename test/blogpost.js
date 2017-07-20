@@ -28,10 +28,12 @@ describe('POST GET DELETE blogPost', () => {
 
   let testBlogPost = new blogPost({
     title: "A title",
-    url: "url-test",
+    url: "url-test3",
     date: 99999999,
+    intro: "Some intro text about the blogPost",
     tags: ["Awesome", "Test"],
-    intro: "Some intro text about the blogPost"
+    image: "https://image.jimcdn.com/app/cms/image/transf/dimension=395x1024:format=jpg/path/s18122fe3bc485736/image/i3e461dc332e482d6/version/1497724120/image.jpg",
+    template: "<h1>This is h1</h1>"
   });
 
   it('it should post a post', (done) => {

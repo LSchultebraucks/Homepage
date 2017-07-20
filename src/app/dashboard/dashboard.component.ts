@@ -3,7 +3,8 @@ import { Router } from "@angular/router";
 
 import { AuthService } from "./auth.service";
 import {FormControl, FormGroup } from "@angular/forms";
-import {BlogPost} from "../blog/blogpost-list/blogPost.model";
+import { BlogPost } from "../blog/blogpost-list/blogPost.model";
+import { BlogPostService } from "../blog.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -17,7 +18,7 @@ export class DashboardComponent implements OnInit {
   blogPost: BlogPost = new BlogPost('', '', Date.now(), '', []);
   tags: string = '';
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private blogPostService: BlogPostService, private router: Router) { }
 
   ngOnInit() {
     this.blogGroup = new FormGroup({
@@ -35,6 +36,7 @@ export class DashboardComponent implements OnInit {
   }
 
   onClickPost() {
-
+    this.blogPost.tags = this.tags.split(' ');
+    this.blogPostService.addBlogPost(this.blogPost);
   }
 }

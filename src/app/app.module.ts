@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app.routing.module';
-import {BlogModule} from "./blog/blog.module";
+import { BlogModule } from "./blog/blog.module";
 
 // Components
 import { AppComponent } from './app.component';
@@ -18,7 +18,7 @@ import { PrivacyPolicyComponent } from './footer/privacy-policy/privacy-policy.c
 
 // Services
 import { ErrorService } from "./errors/error.service"
-import { BlogPostService } from "./blog/blog.service";
+import { BlogPostService } from "./blog.service";
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './dashboard/login/login.component';
 import { AuthService } from "./dashboard/auth.service";

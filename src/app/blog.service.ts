@@ -1,21 +1,22 @@
-import { Http, Response,  } from "@angular/http";
-import { Injectable,  } from "@angular/core";
+import {Http, Response,} from "@angular/http";
+import {Injectable,} from "@angular/core";
 import 'rxjs/Rx';
-import { Observable } from "rxjs";
+import {Observable} from "rxjs";
 import 'rxjs/add/operator/catch';
 
-import { ErrorService } from "../errors/error.service";
+import {ErrorService} from "./errors/error.service";
 
-import { BlogPost } from "./blogpost-list/blogPost.model";
+import {BlogPost} from "./blog/blogpost-list/blogPost.model";
 
 @Injectable()
 export class BlogPostService {
   private blogPosts: BlogPost[] = [];
 
-  constructor(private http: Http, private errorService: ErrorService) {}
+  constructor(private http: Http, private errorService: ErrorService) {
+  }
 
   addBlogPost(blogPost) {
-
+    //return this.http.post('http://localhost:3000/blogpost')
   }
 
   getBlogPost(url: any) {
@@ -27,7 +28,9 @@ export class BlogPostService {
           result.obj.url,
           result.obj.date,
           result.obj.intro,
-          result.obj.tags
+          result.obj.tags,
+          result.obj.image,
+          result.obj.template
         );
         return blogPost;
       })
@@ -48,7 +51,10 @@ export class BlogPostService {
             blogPost.url,
             blogPost.date,
             blogPost.intro,
-            blogPost.tags)
+            blogPost.tags,
+            blogPost.image,
+            blogPost.template
+            )
           );
         }
         this.blogPosts = transformedBlogPosts;

@@ -43,9 +43,9 @@ router.post('/', function (request, response, next) {
     title: request.body.title,
     url: request.body.url,
     date: request.body.date,
-    image: request.body.image,
-    tags: request.body.tags,
     intro: request.body.intro,
+    tags: request.body.tags,
+    image: request.body.image,
     template: request.body.template
   });
   post.save(function (err, result) {
@@ -76,9 +76,9 @@ router.put(':/url', function (request, response, next) {
         title: request.body.title,
         url: request.body.url,
         date: request.body.date,
-        image: request.body.image,
-        tags: request.body.tags,
         intro: request.body.intro,
+        tags: request.body.tags,
+        image: request.body.image,
         template: request.body.template
       });
       post.save(function (err, result) {

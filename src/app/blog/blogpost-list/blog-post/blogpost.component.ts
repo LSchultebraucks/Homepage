@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute} from '@angular/router';
 
 import { BlogPost } from "../blogPost.model";
-import { BlogPostService } from "../../blog.service";
+import { BlogPostService } from "../../../blog.service";
 
 @Component({
   selector: 'app-blogpost',
@@ -20,6 +20,7 @@ export class BlogPostComponent implements OnInit {
       this.url = params['url'];
       this.blogPostService.getBlogPost(this.url).subscribe(blogPost => {
         this.blogPost = blogPost;
+        console.log(this.blogPost);
         document.getElementById("inner-container").innerHTML = this.blogPost.template;
       });
     });

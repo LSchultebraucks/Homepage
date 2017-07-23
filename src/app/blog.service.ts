@@ -1,7 +1,7 @@
-import {Http, Response,} from "@angular/http";
-import {Injectable,} from "@angular/core";
+import { Http, Response, Headers } from "@angular/http";
+import { Injectable } from "@angular/core";
 import 'rxjs/Rx';
-import {Observable} from "rxjs";
+import  {Observable } from "rxjs";
 import 'rxjs/add/operator/catch';
 
 import {ErrorService} from "./errors/error.service";
@@ -15,8 +15,28 @@ export class BlogPostService {
   constructor(private http: Http, private errorService: ErrorService) {
   }
 
-  addBlogPost(blogPost) {
-    //return this.http.post('http://localhost:3000/blogpost')
+  addBlogPost(blogPost: BlogPost) {
+    const body = JSON.stringify(blogPost);
+    const headers = new Headers({'Content-Type': 'application/json', 'Accept': 'application/json'});
+    return this.http.post('http://localhost:3000/blogpost', body, {headers: headers})
+      .map((response: Response) => {
+        const result = response.json();
+        const blogPost = new BlogPost(
+          result.obj.title,
+          result.obj.url,
+          result.obj.date,
+          result.intro,
+          result.tags,
+          result.image,
+          result.template
+        );
+        this.blogPosts.push(blogPost);
+        return blogPost;
+      })
+      .catch((error: Response) => {
+        this.errorService.handleError(error.json());
+        return Observable.throw(error.json());
+      });
   }
 
   getBlogPost(url: any) {

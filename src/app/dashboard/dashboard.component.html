@@ -1,6 +1,6 @@
 <div>
   <h1>Let's create a new blog post</h1>
-  <form [formGroup]="blogGroup" (ngSubmit)="onClickPost()">
+  <form [formGroup]="blogGroup" (ngSubmit)="onSubmit()">
     <div>
       <label for="title">Title</label>
       <input [(ngModel)]="blogPost.title" class="form-control" formControlName="title" id="title" required>
@@ -57,7 +57,7 @@
     <div id="inner-container" [innerHtml]="blogPost.template"></div>
 
     <div>
-      <button class="btn btn-success" type="submit">Post Blog Post</button>
+      <button class="btn btn-success" type="submit">Post Blogpost</button>
     </div>
   </form>
 

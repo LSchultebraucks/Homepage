@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 
 import { AuthService } from "./auth.service";
-import {FormControl, FormGroup } from "@angular/forms";
+import { FormControl, FormGroup } from "@angular/forms";
 import { BlogPost } from "../blog/blogpost-list/blogPost.model";
 import { BlogPostService } from "../blog.service";
 
@@ -35,8 +35,11 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  onClickPost() {
+  onSubmit() {
+    console.log('onClickPost');
     this.blogPost.tags = this.tags.split(' ');
-    this.blogPostService.addBlogPost(this.blogPost);
+    this.blogPostService.addBlogPost(this.blogPost).subscribe((blogPost: BlogPost) => {
+      this.router.navigateByUrl('/blog/' + blogPost.url);
+    });
   }
 }

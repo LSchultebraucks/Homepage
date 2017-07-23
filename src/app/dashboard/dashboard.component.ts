@@ -36,7 +36,6 @@ export class DashboardComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('onClickPost');
     this.blogPost.tags = this.tags.split(' ');
     this.blogPostService.addBlogPost(this.blogPost).subscribe((blogPost: BlogPost) => {
       this.router.navigateByUrl('/blog/' + blogPost.url);

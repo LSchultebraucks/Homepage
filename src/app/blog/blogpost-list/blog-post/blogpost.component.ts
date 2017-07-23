@@ -20,7 +20,6 @@ export class BlogPostComponent implements OnInit {
       this.url = params['url'];
       this.blogPostService.getBlogPost(this.url).subscribe(blogPost => {
         this.blogPost = blogPost;
-        console.log(this.blogPost);
         document.getElementById("inner-container").innerHTML = this.blogPost.template;
       });
     });

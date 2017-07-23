@@ -22,6 +22,8 @@ import { BlogPostService } from "./blog.service";
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './dashboard/login/login.component';
 import { AuthService } from "./dashboard/auth.service";
+import { ManageBlogpostsComponent } from './dashboard/manage-blogposts/manage-blogposts.component';
+import { EditComponent } from './dashboard/manage-blogposts/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { AuthService } from "./dashboard/auth.service";
     FooterComponent,
     PrivacyPolicyComponent,
     DashboardComponent,
-    LoginComponent
+    LoginComponent,
+    ManageBlogpostsComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

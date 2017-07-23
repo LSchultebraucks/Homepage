@@ -10,6 +10,8 @@ import { PrivacyPolicyComponent } from "./footer/privacy-policy/privacy-policy.c
 import { BlogPostComponent } from "./blog/blogpost-list/blog-post/blogpost.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { LoginComponent } from "./dashboard/login/login.component";
+import { ManageBlogpostsComponent } from "./dashboard/manage-blogposts/manage-blogposts.component";
+import { EditComponent}  from "./dashboard/manage-blogposts/edit/edit.component";
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -19,6 +21,8 @@ const appRoutes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'manage', component: ManageBlogpostsComponent },
+  { path: 'manage/edit/:url', component: EditComponent },
   { path: 'login', component: LoginComponent },
   { path: '**', redirectTo: '/home', pathMatch: 'full' }
 ];

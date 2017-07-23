@@ -1,0 +1,64 @@
+<div>
+  <h1>Let's create a new blog post</h1>
+  <form [formGroup]="blogGroup" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="title">Title</label>
+      <input [(ngModel)]="blogPost.title" class="form-control" formControlName="title" id="title" required>
+    </div>
+    <div>
+      <label for="url">Url</label>
+      <input [(ngModel)]="blogPost.url" class="form-control" formControlName="url" id="url" required>
+    </div>
+    <div>
+      <label for="date">Date</label>
+      <input [(ngModel)]="blogPost.date" class="form-control" formControlName="date" id="date" required>
+    </div>
+    <div>
+      <label for="tags">Tags</label>
+      <input [(ngModel)]="tags" class="form-control" formControlName="tags" id="tags" required>
+    </div>
+    <div>
+      <label for="intro">Intro</label>
+      <textarea rows="10" [(ngModel)]="blogPost.intro" class="form-control" formControlName="intro" id="intro" required></textarea>
+    </div>
+    <div>
+      <label for="image">Image</label>
+      <input [(ngModel)]="blogPost.image" class="form-control" formControlName="image" id="image" required>
+    </div>
+    <div>
+      <label for="template">Template (Content)</label>
+      <textarea class="form-control" [(ngModel)]="blogPost.template" rows="25" formControlName="template" id="template" required></textarea>
+    </div>
+
+    <br>
+    <h1>BlogPost Preview</h1>
+    <hr>
+    <!-- blogPost Preview -->
+    <div>
+      <h1>{{blogPost.title}}</h1>
+      <div class="row">
+        <div class="col-sm-3">
+          <em>{{blogPost.parseDate(blogPost.date)}}</em>
+        </div>
+        <div *ngFor="let tag of tags.split(' ')">
+          <em class="tag">{{tag}}&nbsp;&nbsp;</em>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-sm-7">
+          <p>{{blogPost.intro}}</p>
+        </div>
+        <div>
+          <img class="cursor-pointer" src={{blogPost.image}} (click)="onClickReadMore()"/>
+        </div>
+      </div>
+    </div>
+    <div id="inner-container" [innerHtml]="blogPost.template"></div>
+
+    <div>
+      <button class="btn btn-success" type="submit">Update Blogpost</button>
+    </div>
+  </form>
+
+</div>

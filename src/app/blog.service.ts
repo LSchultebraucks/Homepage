@@ -10,7 +10,7 @@ import {BlogPost} from "./blog/blogpost-list/blogPost.model";
 
 @Injectable()
 export class BlogPostService {
-  private blogPosts: BlogPost[] = [];
+  private URL: string = 'http://localhost:3000/blogpost/';
 
   constructor(private http: Http, private errorService: ErrorService) {
   }
@@ -18,7 +18,7 @@ export class BlogPostService {
   addBlogPost(blogPost: BlogPost) {
     const body = JSON.stringify(blogPost);
     const headers = new Headers({'Content-Type': 'application/json', 'Accept': 'application/json'});
-    return this.http.post('http://localhost:3000/blogpost', body, {headers: headers})
+    return this.http.post(this.URL, body, {headers: headers})
       .map((response: Response) => {
         const result = response.json();
         const blogPost = new BlogPost(
@@ -30,7 +30,6 @@ export class BlogPostService {
           result.image,
           result.template
         );
-        this.blogPosts.push(blogPost);
         return blogPost;
       })
       .catch((error: Response) => {
@@ -40,7 +39,7 @@ export class BlogPostService {
   }
 
   getBlogPost(url: any) {
-    return this.http.get('http://localhost:3000/blogpost/' + url)
+    return this.http.get(this.URL + url)
       .map((response: Response) => {
         const result = response.json();
         let blogPost = new BlogPost(
@@ -61,7 +60,7 @@ export class BlogPostService {
   }
 
   getBlogPosts() {
-    return this.http.get('http://localhost:3000/blogpost')
+    return this.http.get(this.URL)
       .map((response: Response) => {
         const result = response.json();
         let transformedBlogPosts: BlogPost[] = [];
@@ -77,12 +76,43 @@ export class BlogPostService {
             )
           );
         }
-        this.blogPosts = transformedBlogPosts;
         return transformedBlogPosts;
       })
       .catch((error) => {
         this.errorService.handleError(error.json());
         return Observable.throw(error.json());
       });
+  }
+
+  updateBlogPost(blogPost: BlogPost) {
+    const body = JSON.stringify(blogPost);
+    const headers = new Headers({'Content-Type': 'application/json', 'Accept': 'application/json'});
+    return this.http.put(this.URL, body, {headers: headers})
+      .map((response: Response) => {
+        const result = response.json();
+        const blogPost = new BlogPost(
+          result.obj.title,
+          result.obj.url,
+          result.obj.date,
+          result.intro,
+          result.tags,
+          result.image,
+          result.template
+        );
+        return blogPost;
+      })
+      .catch((error: Response) => {
+        this.errorService.handleError(error.json());
+        return Observable.throw(error.json());
+      });
+  }
+
+  deleteBlogPost(blogPost: BlogPost) {
+    return this.http.delete(this.URL + blogPost.url)
+      .map((response: Response) => response.json())
+      .catch((error: Response) => {
+        this.errorService.handleError(error.json());
+        return Observable.throw(error.json());
+      })
   }
 }

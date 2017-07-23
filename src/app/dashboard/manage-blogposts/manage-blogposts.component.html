@@ -1,0 +1,15 @@
+<div><h1>Manage Blogposts (Delete/Edit)</h1>
+  <ul *ngFor="let blogPost of blogPosts">
+    <div>
+      <li class="row">
+        <div class="col-md-6">
+          <p>{{blogPost.title}} - <em>{{blogPost.parseDate(blogPost.date)}}</em></p>
+        </div>
+        <div class="col-md-6">
+          <button class="btn" (click)="onClickEdit(blogPost.url)">Edit</button>
+          <button class="btn btn-danger" (click)="onClickDelete(blogPost)">Delete</button>
+        </div>
+      </li>
+    </div>
+  </ul>
+</div>

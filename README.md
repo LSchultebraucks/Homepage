@@ -1,5 +1,7 @@
 # Homepage
 
+A selfmade hompage, but not used in production.
+
 To build:
 * npm install
 * ng build dist --watch
